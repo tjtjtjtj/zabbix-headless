@@ -1,0 +1,5 @@
+{
+  "stressurl":  "http://192.168.20.41/zabbix/index.php",
+  "userid": "admin",
+  "password": "zabbix"
+}
