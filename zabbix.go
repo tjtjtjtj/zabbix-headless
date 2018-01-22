@@ -62,6 +62,18 @@ func (z *Zabbix) Login() {
 		log.Fatal("Failed to set password", err)
 	}
 
+	if err := z.Page.FindByLink("スクリーン").Click(); err != nil {
+		log.Fatal("Failed to click", err)
+	}
+
+	if err := z.Page.FindByID("elementid").Select("testscreen"); err != nil {
+		log.Fatal("Failed to click", err)
+	}
+
+	s := z.Page.FindByClass("screen_view").AllByName("img").At(0).String()
+
+	fmt.Printf("imgstring %s", s)
+
 	time.Sleep(10 * time.Second)
 
 	z.Page.Screenshot("/tmp/outputs/zabbix3.jpg")
